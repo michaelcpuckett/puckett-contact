@@ -13,7 +13,8 @@
   "targets": {
     "default": {
       "source": [
-        "./pages/login.ts"
+        "./pages/login.ts",
+        "./pages/home.ts"
       ]
     }
   },
