@@ -9,7 +9,7 @@ import { FtpStorageAdapter } from 'activitypub-core-storage-ftp';
 import { DeliveryAdapter } from 'activitypub-core-delivery';
 import { ServiceAccount } from 'firebase-admin';
 import { ServerResponse, IncomingMessage } from 'http';
-import { LOCAL_DOMAIN } from 'activitypub-core-utilities';
+import { getId, LOCAL_DOMAIN } from 'activitypub-core-utilities';
 import * as nunjucks from 'nunjucks';
 import { AP } from 'activitypub-core-types';
 import * as path from 'path';
@@ -36,6 +36,10 @@ nunjucksConfig.addFilter('getPathname', (url: string) => {
   } catch (error) {
     return '';
   }
+});
+
+nunjucksConfig.addFilter('getId', (entity: AP.Entity) => {
+  return getId(entity)?.toString() ?? '';
 });
 
 nunjucksConfig.addFilter('dateFromNow', (dateString: string) => {

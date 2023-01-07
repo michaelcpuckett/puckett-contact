@@ -2,6 +2,21 @@
 <h1>Home</h1>
 <h2>Post</h2>
 <form id="create-form" method="POST" novalidate>
+  <input
+    type="hidden"
+    name="actor-id"
+    value="{{ actor | getId }}"
+  />
+  <input
+    type="hidden"
+    name="actor-outbox-id"
+    value="{{ actor.outbox | getId }}"
+  />
+  <input
+    type="hidden"
+    name="actor-followers-id"
+    value="{{ actor.followers | getId }}"
+  />
   <label>
     <textarea name="content"></textarea>
   </label>
