@@ -1,5 +1,7 @@
 const createFormElement = window.document.querySelector('#create-form');
-createFormElement.addEventListener('submit', () => {
+createFormElement.addEventListener('submit', (event) => {
+  event.preventDefault();
+
   const actorIdElement = createFormElement.querySelector<HTMLInputElement>('input[name="actor-id"]');
   const actorOutboxIdElement = createFormElement.querySelector<HTMLInputElement>('input[name="actor-outbox-id"]');
   const actorFollowersIdElement = createFormElement.querySelector<HTMLInputElement>('input[name="actor-followers-id"]');
